@@ -1,0 +1,45 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+const settings = await Astro.glob('../settings/settings.md')
+
+export interface Props {
+  title?: string
+  description?: string
+  socialImage?: string
+}
+
+const {
+  title = settings[0].frontmatter.title,
+  description = settings[0].frontmatter.description,
+  socialImage = settings[0].frontmatter.socialImage,
+} = Astro.props as Props
+
+const socialLinks = [...Object.entries(settings[0].frontmatter.social)]
+---
+
+<!DOCTYPE html>
+<html class="h-full scroll-smooth font-sans" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {Astro.url.pathname === '/' ? `${title} 🦭` : `${title} 🦭 Just Wild`}
+    </title>
+    <meta name="description" content={description} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={Astro.url} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${Astro.url.origin}${socialImage}`} />
+    <!-- <link rel="stylesheet" href="/styles/main.css" /> -->
+  </head>
+  <body class={`flex flex-col h-full ${settings[0].frontmatter.theme}`}>
+    <Header logo={settings[0].frontmatter.logo} />
+    <main class="grow shrink basis-0">
+      <slot />
+    </main>
+    <Footer socialLinks={socialLinks} />
+  </body>
+</html>

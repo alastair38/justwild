@@ -1,0 +1,19 @@
+---
+import SocialProfiles from './SocialProfiles.astro'
+export interface Props {
+  background?: string
+  socialLinks: any
+}
+
+const {background = 'bg-gray-100', socialLinks} = Astro.props as Props
+
+const d = new Date()
+const year = d.getFullYear()
+---
+
+<footer
+  class={`${background} px-6 pt-6 pb-12 md:pb-6 text-center space-y-2 md:space-y-6`}
+>
+  <SocialProfiles socialLinks={socialLinks} />
+  <p>&copy; {year}</p>
+</footer>

@@ -1,0 +1,119 @@
+---
+import {Image} from '@astrojs/image/components'
+
+import Card from '../../../components/Card.astro'
+import Layout from '../../../layouts/Layout.astro'
+import RightChevron from '../../../components/icons/RightChevron.astro'
+import LeftChevron from '../../../components/icons/LeftChevron.astro'
+
+export async function getStaticPaths({paginate}) {
+  const settings = await Astro.glob('../../../settings/settings.md')
+  const allTags = []
+  const allTagsData = await Astro.glob('../../../categories/*.md')
+  const allPosts = await Astro.glob('../*.md')
+
+  allTagsData.map(tagData => {
+    allTags.push(tagData.frontmatter.slug)
+  })
+
+  // For every tag, return a paginate() result.
+  // Make sure that you pass `{params: {tag}}` to `paginate()`
+  // so that Astro knows which tag grouping the result is for.
+  return allTagsData.map(tag => {
+    const filteredPosts = allPosts.filter(post =>
+      post.frontmatter.categories.includes(tag.frontmatter.title)
+    )
+
+    return paginate(filteredPosts, {
+      params: {
+        tag: tag.frontmatter.slug,
+      },
+      props: {
+        title: tag.frontmatter.title,
+        content: tag.frontmatter.description,
+      },
+      pageSize: settings[0].frontmatter.categoryPages,
+    })
+  })
+}
+
+const {page, title, content} = Astro.props
+const {tag} = Astro.params
+---
+
+<Layout title={title} description={`${title} photos from Just Wild`}>
+  <section
+    class="w-11/12 md:w-3/4 mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-6 my-6 md:my-20"
+  >
+    <header>
+      <h1 class="text-3xl font-black col-span-full capitalize">
+        {title}
+      </h1>
+
+      <span
+        class="fixed bottom-[10%] z-50 lg:bottom-4 right-4 ring-4 ring-pink-500 px-3 py-1 rounded-full shadow-md bg-white flex items-center gap-2"
+        >{`${page.currentPage} of ${page.lastPage}`}
+        {
+          page.url.prev ? (
+            <a
+              class="flex items-center gap-2"
+              href={page.url.prev}
+              aria-label="previous page"
+            >
+              <LeftChevron classes={`h-4 w-4`} />
+            </a>
+          ) : null
+        }
+        {
+          page.url.next ? (
+            <a
+              class="flex items-center gap-2"
+              href={page.url.next}
+              aria-label="next page"
+            >
+              <RightChevron classes={`h-4 w-4`} />
+            </a>
+          ) : null
+        }
+      </span>
+    </header>
+    {content && <p class="col-span-full">{content}</p>}
+    <div class="col-span-full">
+      {
+        `Showing ${page.start === page.end ? `image` : `images`} ${
+          page.start + 1
+        } ${
+          page.currentPage === page.lastPage
+            ? `to ${page.total}`
+            : `to ${page.start + page.size}`
+        } (out of ${page.total})`
+      }
+    </div>
+
+    <!--List the array of astronaut info-->
+    {
+      page.data.map(({frontmatter, url}) => (
+        <Card>
+          {frontmatter.image && (
+            <Image
+              class="w-full overflow-hidden object-cover object-top"
+              src={`/src/images/${frontmatter.image}`}
+              alt={frontmatter.title}
+              height={400}
+              aspectRatio="3:2"
+            />
+          )}
+          <div class="p-6 space-y-6">
+            <h2 class="text-2xl font-bold">{frontmatter.title}</h2>
+            <a
+              class="px-4 py-1 focus:ring-4 focus:ring-pink-600 hover:ring-4 hover:ring-pink-600 border border-current rounded-md inline-flex"
+              href={url}
+            >
+              View Details
+            </a>
+          </div>
+        </Card>
+      ))
+    }
+  </section>
+</Layout>

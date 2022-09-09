@@ -1,0 +1,35 @@
+---
+import {Image, Picture} from '@astrojs/image/components'
+import Banner from '../images/banner.png'
+export interface Props {
+  heading?: string
+  text?: string
+  showImage?: boolean
+}
+
+const {
+  heading = 'Just Wild',
+  text = 'Photos by Grace Cox',
+  showImage = true,
+} = Astro.props as Props
+---
+
+<section>
+  {
+    showImage && (
+      <Image
+        class="object-cover"
+        src={Banner}
+        aspectRatio="2:1"
+        width={1600}
+        format="webp"
+        alt="Just Wild photography"
+      />
+    )
+  }
+
+  <h1 class="sr-only">{heading}</h1>
+  <p class="sr-only">
+    {text}
+  </p>
+</section>

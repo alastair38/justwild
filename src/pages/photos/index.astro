@@ -1,0 +1,51 @@
+---
+import {Image, Picture} from '@astrojs/image/components'
+
+import Layout from '../../layouts/Layout.astro'
+
+import Card from '@components/Card.astro'
+
+const categories = await Astro.glob('../../categories/*.md')
+
+let allCategories = []
+const related = categories.map(
+  i =>
+    i.frontmatter.categories &&
+    i.frontmatter.categories.map(category => allCategories.push(category))
+  // console.log(i.frontmatter.title)
+)
+
+let unique = [...new Set(allCategories)]
+---
+
+<Layout title="Lastest work" description="Latest work from Just Wild">
+  <section
+    class="w-11/12 md:w-3/4 mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-6 my-6 md:my-20"
+  >
+    <h1 class="text-3xl font-black col-span-full">My work</h1>
+    {
+      categories.map(category => (
+        <Card>
+          {category.frontmatter.image && (
+            <Image
+              class="w-full overflow-hidden object-cover object-top"
+              src={`/src/images/${category.frontmatter.image}`}
+              alt={category.frontmatter.title}
+              height={400}
+              aspectRatio="3:2"
+            />
+          )}
+          <div class="p-6 space-y-6">
+            <h2 class="text-2xl font-bold">{category.frontmatter.title}</h2>
+            <a
+              class="px-4 py-1 focus:ring-4 focus:ring-pink-600 hover:ring-4 hover:ring-pink-600 border border-current rounded-md inline-flex"
+              href={`${Astro.url}/${category.frontmatter.slug}`}
+            >
+              View Photos
+            </a>
+          </div>
+        </Card>
+      ))
+    }
+  </section>
+</Layout>

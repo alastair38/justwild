@@ -1,0 +1,70 @@
+---
+import {Image} from '@astrojs/image/components'
+
+const navItems = await Astro.glob('../navigation/*.md')
+
+const items = navItems
+  .map(item => item.frontmatter)
+  .sort((a, b) => a.order - b.order)
+// const sorted = items.sort((a, b) => a.order - b.order)
+
+const path = Astro.url.pathname
+
+export interface Props {
+  background?: string
+  logo: string
+}
+
+const {background = 'bg-gray-100', logo} = Astro.props as Props
+---
+
+<header class={`${background} py-3 px-6`}>
+  <div class="flex justify-between items-center">
+    <div class="w-full">
+      <a
+        class="flex w-full justify-center md:justify-start items-center gap-3"
+        href="/"
+      >
+        <Image
+          class="h-8 w-8 lg:h-12 lg:h-auto object-contain rounded-full bg-blue-300 p-1"
+          src={logo}
+          height="48"
+          alt="Just Wild logo"
+          aspectRatio={1 / 1}
+        />
+        <span class="text-2xl lg:text-4xl font-black">Just Wild</span>
+      </a>
+    </div>
+
+    <nav
+      aria-label="Main site menu"
+      class="fixed z-50 border-t border-t-slate-300 lg:border-t-0 bg-white md:bg-transparent md:relative bottom-0 left-0 right-0"
+    >
+      <ul class="justify-evenly p-2 flex gap-6">
+        {
+          items.map(item => (
+            <li class="w-max">
+              <a
+                class={`flex gap-2 items-center ${
+                  path === (item.slug ? item.slug : '/')
+                    ? 'text-red-500'
+                    : 'text-gray-900'
+                }`}
+                href={item.slug ? item.slug : '/'}
+              >
+                {item.icon && (
+                  <img
+                    class="w-6 h-6"
+                    src={`/src/images/icons/${item.icon}.svg`}
+                    aria-hidden="true"
+                  />
+                )}
+                {item.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

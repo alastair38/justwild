@@ -1,0 +1,46 @@
+---
+import Card from '../components/Card.astro'
+import {Image} from '@astrojs/image/components'
+const settings = await Astro.glob('../settings/settings.md')
+
+export interface Props {
+  title?: string
+  content: any
+  buttonText?: string
+  items?: number
+}
+
+const {
+  title,
+  content,
+  buttonText = 'View Photo',
+  items = settings[0].frontmatter.relatedPhotos,
+} = Astro.props as Props
+---
+
+<aside class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  {title && <h2 class="text-2xl font-bold col-span-full">{title}</h2>}
+
+  {
+    content.slice(0, items).map(photo => (
+      <Card>
+        <div class="p-6 space-y-6">
+          <Image
+            class="max-w-full object-cover object-top"
+            src={`/src/images/${photo.image}`}
+            alt={photo.title}
+            aspectRatio="16:9"
+            height={300}
+          />
+          <h2 class="text-xl font-bold">{photo.title}</h2>
+          <a
+            class="px-4 py-1 focus:ring-4 focus:ring-pink-600 hover:ring-4 hover:ring-pink-600 border border-current rounded-md inline-flex"
+            href={photo.slug}
+          >
+            {buttonText}
+          </a>
+        </div>
+      </Card>
+    ))
+  }
+</aside>

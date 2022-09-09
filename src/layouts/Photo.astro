@@ -1,0 +1,100 @@
+---
+import Layout from './Layout.astro'
+import Index from '../pages/photos/index.astro'
+import RelatedPhotos from '../components/RelatedPhotos.astro'
+import {Image, Picture} from '@astrojs/image/components'
+
+export async function getStaticPaths() {
+  const photos = await Astro.glob('../pages/photos/*.md')
+
+  return photos.map(photo => ({
+    params: {
+      slug: photo.frontmatter.slug,
+    },
+    props: {
+      photo,
+    },
+  }))
+}
+
+const {frontmatter, url} = Astro.props
+const currentCategories =
+  frontmatter.categories && frontmatter.categories.map(category => category)
+
+const photos = await Astro.glob('../pages/photos/*.md')
+let filteredPhotos = []
+const related = photos.map(
+  i =>
+    i.frontmatter.categories &&
+    i.frontmatter.title !== frontmatter.title &&
+    i.frontmatter.categories.filter(element => {
+      if (currentCategories && currentCategories.includes(element)) {
+        const obj = {
+          layout: i.frontmatter.layout,
+          title: i.frontmatter.title,
+          slug: i.url,
+          image: i.frontmatter.image,
+        }
+        filteredPhotos.push(obj)
+      }
+    })
+)
+const filteredUnique = [
+  ...new Map(filteredPhotos.map(item => [item['slug'], item])).values(),
+]
+---
+
+<Layout
+  title={`${frontmatter.title}`}
+  description={frontmatter.description}
+  socialImage={frontmatter.image}
+>
+  <article
+    class="w-11/12 md:w-3/4 mx-auto p-6 grid grid-cols-1 gap-6 my-6 md:my-20"
+  >
+    <header class="space-y-6 border-b border-b-gray-300 pb-6">
+      <h1 class="text-3xl font-black">{frontmatter.title}</h1>
+      <p class="italic">
+        Posted by <strong>{frontmatter.author}</strong> on {
+          new Date(frontmatter.date).toLocaleDateString()
+        }
+
+        {url}
+      </p>
+      <p class="flex gap-2">
+        {
+          currentCategories &&
+            currentCategories.map(category => (
+              <a
+                class="px-3 border bg-white rounded-full hover:ring-4 hover:ring-pink-500"
+                href={`/photos/${category.toLowerCase().replaceAll(' ', '-')}`}
+              >
+                {category}
+              </a>
+            ))
+        }
+      </p>
+    </header>
+
+    <div class="space-y-6">
+      <slot />
+    </div>
+
+    <Image
+      class="max-w-full object-cover my-12"
+      src={`/src/images/${frontmatter.image}`}
+      alt={frontmatter.title}
+      width={1400}
+      height={1400}
+    />
+
+    {
+      filteredPhotos.length > 0 && (
+        <RelatedPhotos
+          title="You might also like these"
+          content={filteredUnique}
+        />
+      )
+    }
+  </article>
+</Layout>

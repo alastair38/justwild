@@ -1,0 +1,31 @@
+---
+export interface Props {
+  socialLinks: any
+}
+
+const {socialLinks} = Astro.props as Props
+---
+
+<nav aria-label="Social Media Links">
+  {
+    socialLinks.length > 0 && (
+      <ul class="flex justify-evenly items-center gap-6">
+        {socialLinks.map(
+          links =>
+            links[1] && (
+              <li>
+                <a href={links[1]}>
+                  <img
+                    class="w-6 h-6"
+                    src={`/src/images/icons/${links[0]}.svg`}
+                    aria-hidden="true"
+                  />
+                  <span class="sr-only">{links[0]}</span>
+                </a>
+              </li>
+            )
+        )}
+      </ul>
+    )
+  }
+</nav>
