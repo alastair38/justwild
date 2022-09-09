@@ -4,18 +4,22 @@ import Footer from '../components/Footer.astro'
 const settings = await Astro.glob('../settings/settings.md')
 
 export interface Props {
-  title?: string
+  siteTitle?: string
   description?: string
   socialImage?: string
 }
 
 const {
-  title = settings[0].frontmatter.title,
+  siteTitle = settings[0].frontmatter.title,
   description = settings[0].frontmatter.description,
   socialImage = settings[0].frontmatter.socialImage,
 } = Astro.props as Props
 
 const socialLinks = [...Object.entries(settings[0].frontmatter.social)]
+
+const menuItems = settings[0].frontmatter.menu
+
+console.log('menu', menuItems)
 ---
 
 <!DOCTYPE html>
@@ -25,18 +29,30 @@ const socialLinks = [...Object.entries(settings[0].frontmatter.social)]
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      {Astro.url.pathname === '/' ? `${title} 🦭` : `${title} 🦭 Just Wild`}
+      {
+        Astro.url.pathname === '/'
+          ? `${siteTitle}`
+          : `${siteTitle} 💥 Just Wild`
+      }
     </title>
     <meta name="description" content={description} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={Astro.url} />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={siteTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={`${Astro.url.origin}${socialImage}`} />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <!-- <link rel="stylesheet" href="/styles/main.css" /> -->
   </head>
   <body class={`flex flex-col h-full ${settings[0].frontmatter.theme}`}>
-    <Header logo={settings[0].frontmatter.logo} />
+    <Header
+      siteTitle={settings[0].frontmatter.title}
+      logo={settings[0].frontmatter.logo}
+      menuItems={menuItems}
+    />
     <main class="grow shrink basis-0">
       <slot />
     </main>

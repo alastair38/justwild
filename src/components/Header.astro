@@ -1,21 +1,28 @@
 ---
 import {Image} from '@astrojs/image/components'
 
-const navItems = await Astro.glob('../navigation/*.md')
+// const navItems = await Astro.glob('../navigation/*.md')
 
-const items = navItems
-  .map(item => item.frontmatter)
-  .sort((a, b) => a.order - b.order)
-// const sorted = items.sort((a, b) => a.order - b.order)
+// const items = navItems
+//   .map(item => item.frontmatter)
+//   .sort((a, b) => a.order - b.order)
+// // const sorted = items.sort((a, b) => a.order - b.order)
 
-const path = Astro.url.pathname
+// const path = Astro.url.pathname
 
 export interface Props {
+  siteTitle?: string
   background?: string
-  logo: string
+  logo?: string
+  menuItems: any
 }
 
-const {background = 'bg-gray-100', logo} = Astro.props as Props
+const {
+  siteTitle,
+  background = 'bg-slate-200',
+  logo,
+  menuItems,
+} = Astro.props as Props
 ---
 
 <header class={`${background} py-3 px-6`}>
@@ -32,7 +39,7 @@ const {background = 'bg-gray-100', logo} = Astro.props as Props
           alt="Just Wild logo"
           aspectRatio={1 / 1}
         />
-        <span class="text-2xl lg:text-4xl font-black">Just Wild</span>
+        <span class="text-2xl lg:text-4xl font-black">{siteTitle}</span>
       </a>
     </div>
 
@@ -42,11 +49,11 @@ const {background = 'bg-gray-100', logo} = Astro.props as Props
     >
       <ul class="justify-evenly p-2 flex gap-6">
         {
-          items.map(item => (
+          menuItems.map(item => (
             <li class="w-max">
               <a
                 class={`flex gap-2 items-center ${
-                  path === (item.slug ? item.slug : '/')
+                  Astro.url.pathname === (item.slug ? item.slug : '/')
                     ? 'text-red-500'
                     : 'text-gray-900'
                 }`}
@@ -59,7 +66,7 @@ const {background = 'bg-gray-100', logo} = Astro.props as Props
                     aria-hidden="true"
                   />
                 )}
-                {item.title}
+                {item.name}
               </a>
             </li>
           ))

@@ -45,7 +45,7 @@ const filteredUnique = [
 ---
 
 <Layout
-  title={`${frontmatter.title}`}
+  siteTitle={frontmatter.title}
   description={frontmatter.description}
   socialImage={frontmatter.image}
 >
@@ -58,8 +58,6 @@ const filteredUnique = [
         Posted by <strong>{frontmatter.author}</strong> on {
           new Date(frontmatter.date).toLocaleDateString()
         }
-
-        {url}
       </p>
       <p class="flex gap-2">
         {

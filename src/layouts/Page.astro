@@ -3,7 +3,7 @@ import Layout from './Layout.astro'
 const {frontmatter, headings} = Astro.props
 ---
 
-<Layout title={frontmatter.title}>
+<Layout siteTitle={frontmatter.title}>
   <article class="w-11/12 md:w-3/4 mx-auto p-6 space-y-6 my-6 md:my-20">
     <h1 class="text-3xl font-bold">{frontmatter.title}</h1>
 

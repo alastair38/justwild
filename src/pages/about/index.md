@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/Page.astro
-title: About Just Wild
+title: About
 ---
 
 # Me page
