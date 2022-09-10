@@ -3,7 +3,7 @@
 
 title: Just Wild
 description: Just Wild Photography
-theme: bg-slate-200
+theme: bg-white
 
 # theme options are 'default', 'midnight', 'sunrise', 'earth' and 'pop'. To change the theme, update the theme configuration above using one of these options (without the parentheses).
 
