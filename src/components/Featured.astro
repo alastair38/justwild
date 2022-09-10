@@ -18,10 +18,10 @@ const featuredImages = photos.filter(
         <div class="p-6 space-y-6">
           <Image
             class="max-w-full object-cover object-top"
-            src={`/src/images/${feature.frontmatter.image}`}
+            src={feature.frontmatter.image}
             alt={feature.frontmatter.title}
-            aspectRatio="16:9"
             height={300}
+            width={400}
           />
           <h2 class="text-xl font-bold">{feature.frontmatter.title}</h2>
           <a

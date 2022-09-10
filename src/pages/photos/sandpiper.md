@@ -3,7 +3,7 @@ layout: ../../layouts/Photo.astro
 title: Sandpiper - Reef Beach, Lewis
 slug: sandpiper
 date: 2022-09-23
-image: sandpiper.jpg
+image: ./src/images/sandpiper.jpg
 author: Grace Cox
 featured: false
 categories:

@@ -18,6 +18,8 @@ export async function getStaticPaths() {
 }
 
 const {frontmatter, url} = Astro.props
+
+import test from '../images/peacock.jpg'
 const currentCategories =
   frontmatter.categories && frontmatter.categories.map(category => category)
 
@@ -77,10 +79,10 @@ const filteredUnique = [
     <div class="space-y-6">
       <slot />
     </div>
-
+    <!-- {`/src/images/${frontmatter.image}`} -->
     <Image
       class="max-w-full object-cover my-12"
-      src={`/src/images/${frontmatter.image}`}
+      src={frontmatter.image}
       alt={frontmatter.title}
       width={1400}
       height={1400}

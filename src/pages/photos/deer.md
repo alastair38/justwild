@@ -3,7 +3,7 @@ layout: ../../layouts/Photo.astro
 title: Deer
 slug: deer
 date: 2022-07-23
-image: stag.jpg
+image: ./src/images/stag.jpg
 author: Grace Cox
 featured: false
 categories:

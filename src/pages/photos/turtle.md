@@ -3,7 +3,7 @@ layout: ../../layouts/Photo.astro
 title: Turtle
 slug: turtle
 date: 2022-07-26
-image: turtle.jpg
+image: ./src/images/turtle.jpg
 author: Grace Cox
 featured: true
 categories:

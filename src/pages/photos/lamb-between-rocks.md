@@ -3,7 +3,7 @@ layout: ../../layouts/Photo.astro
 title: Lamb between rocks
 slug: lamb-between-rocks
 date: 2022-05-26
-image: lamb-between-rocks.jpg
+image: ./src/images/lamb-between-rocks.jpg
 author: Grace Cox
 featured: true
 categories:

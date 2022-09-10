@@ -3,7 +3,7 @@ layout: ../../layouts/Photo.astro
 title: Two horses Ballynoe
 slug: two-horses-ballynoe
 date: 2022-05-26
-image: two-horses-ballynoe.jpg
+image: ./src/images/two-horses-ballynoe.jpg
 author: Grace Cox
 featured: true
 categories:

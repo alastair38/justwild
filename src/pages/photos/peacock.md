@@ -3,7 +3,7 @@ layout: ../../layouts/Photo.astro
 title: Peacock
 slug: peacock
 date: 2022-09-8
-image: peacock.jpg
+image: ./src/images/peacock.jpg
 author: Grace Cox
 featured: true
 categories:

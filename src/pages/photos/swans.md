@@ -3,7 +3,7 @@ layout: ../../layouts/Photo.astro
 title: Swans
 slug: swans
 date: 2022-08-26
-image: swans.jpg
+image: ./src/images/swans.jpg
 author: Grace Cox
 featured: false
 categories:

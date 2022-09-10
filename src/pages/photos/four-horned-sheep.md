@@ -3,7 +3,7 @@ layout: ../../layouts/Photo.astro
 title: Four-horned sheep
 slug: four-horned-sheep
 date: 2022-07-13
-image: four-horned-sheep.jpg
+image: ./src/images/four-horned-sheep.jpg
 author: Grace Cox
 featured: true
 description: Dramatically customize cutting-edge niche markets whereas extensible deliverables. Uniquely re-engineer world-class imperatives and premier benefits. Completely simplify impactful core competencies and 24/7 e-tailers. Quickly disintermediate fully researched deliverables via maintainable opportunities. Compellingly actualize error-free architectures via top-line models.

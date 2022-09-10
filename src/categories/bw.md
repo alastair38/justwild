@@ -2,5 +2,5 @@
 title: Black and White
 slug: black-and-white
 description: Holisticly provide access to functionalized web services whereas bricks-and-clicks total linkage. Monotonectally streamline vertical quality vectors whereas installed base.
-image: two-horses-ballynoe.jpg
+image: ./src/images/two-horses-ballynoe.jpg
 ---

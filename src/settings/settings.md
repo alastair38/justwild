@@ -9,13 +9,13 @@ theme: bg-slate-200
 
 # Default sitewide images
 
-logo: /src/images/logo/logo.png
-socialImage: /src/images/social/banner.png
+logo: ./src/images/logo/logo.png
+socialImage: ./src/images/social/banner.png
 
 # Items to display
 
 relatedPhotos: 4
-categoryPages: 3
+categoryPages: 4
 
 # Social media profiles
 
@@ -36,11 +36,11 @@ id:
 menu:
   - name: Home
     slug: /
-    icon: home
+    icon: /images/icons/home.svg
   - name: About
     slug: /about
-    icon: about
+    icon: /images/icons/about.svg
   - name: Photos
     slug: /photos
-    icon: photos
+    icon: /images/icons/photos.svg
 ---

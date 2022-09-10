@@ -24,17 +24,17 @@ const {
   {
     content.slice(0, items).map(photo => (
       <Card>
-        <div class="p-6 space-y-6">
+        <div class="p-6 gap-6 flex flex-col h-full">
           <Image
             class="max-w-full object-cover object-top"
-            src={`/src/images/${photo.image}`}
+            src={photo.image}
             alt={photo.title}
-            aspectRatio="16:9"
-            height={300}
+            height={200}
+            width={300}
           />
-          <h2 class="text-xl font-bold">{photo.title}</h2>
+          <h2 class="text-lg font-bold">{photo.title}</h2>
           <a
-            class="px-4 py-1 focus:ring-4 focus:ring-pink-600 hover:ring-4 hover:ring-pink-600 border border-current rounded-md inline-flex"
+            class="px-3 py-1 focus:ring-4 focus:ring-pink-600 hover:ring-4 hover:ring-pink-600 border border-current rounded-md inline-flex mt-auto w-fit"
             href={photo.slug}
           >
             {buttonText}

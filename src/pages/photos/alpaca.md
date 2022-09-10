@@ -3,7 +3,7 @@ layout: ../../layouts/Photo.astro
 title: Alpaca
 slug: alpaca
 date: 2022-07-26
-image: alpaca.jpg
+image: ./src/images/alpaca.jpg
 author: Grace Cox
 featured: false
 categories:
