@@ -1,10 +1,10 @@
 ---
 layout: ../../layouts/Photo.astro
-title: Swans
-slug: swans
+title: Tom, Ballynoe
+slug: tom
 date: 2022-08-26
-image: ./src/images/swans.jpg
-aspect: '49:32'
+image: ./src/images/tom.jpg
+aspect: '1:1'
 camera:
   model: Sony A57
   lens: Sigma 70-300mm F4-5.6 AF DG OS

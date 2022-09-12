@@ -1,8 +1,8 @@
 ---
 import Layout from './Layout.astro'
-import Index from '../pages/photos/index.astro'
 import RelatedPhotos from '../components/RelatedPhotos.astro'
 import {Image, Picture} from '@astrojs/image/components'
+import {getImage} from '@astrojs/image'
 
 export async function getStaticPaths() {
   const photos = await Astro.glob('../pages/photos/*.md')
@@ -19,7 +19,6 @@ export async function getStaticPaths() {
 
 const {frontmatter, url} = Astro.props
 
-import test from '../images/peacock.jpg'
 const currentCategories =
   frontmatter.categories && frontmatter.categories.map(category => category)
 
@@ -52,15 +51,37 @@ const filteredUnique = [
   socialImage={frontmatter.image}
 >
   <article
-    class="w-11/12 md:w-3/4 mx-auto p-6 grid grid-cols-1 gap-6 my-6 md:my-20"
+    class="w-11/12 md:w-3/4 mx-auto p-6 grid grid-cols-1 gap-6 my-6 md:my-20 text-sm md:text-base"
   >
-    <header class="space-y-6 border-b border-b-gray-300 pb-6">
+    <header class="flex flex-col gap-4 border-b border-b-gray-300 pb-6">
       <h1 class="text-3xl font-black">{frontmatter.title}</h1>
-      <p class="italic">
-        Posted by <strong>{frontmatter.author}</strong> on {
-          new Date(frontmatter.date).toLocaleDateString()
-        }
-      </p>
+      <!-- {
+        frontmatter.date && (
+          <p class="italic">
+            Posted on {new Date(frontmatter.date).toLocaleDateString()}
+          </p>
+        )
+      }
+ -->
+      {
+        frontmatter.camera.model && (
+          <div class="flex items-center gap-1 italic ">
+            <img
+              class="w-5 h-5"
+              src="/images/icons/photos.svg"
+              aria-hidden="true"
+              height="24"
+              width="24"
+              alt=""
+            />
+            <span>{frontmatter.camera.model}</span>
+            {frontmatter.camera.lens && (
+              <span> with {frontmatter.camera.lens}</span>
+            )}
+          </div>
+        )
+      }
+
       <p class="flex gap-2">
         {
           currentCategories &&
@@ -76,17 +97,31 @@ const filteredUnique = [
       </p>
     </header>
 
-    <div class="space-y-6">
+    <figure>
+      <Image
+        class="max-w-full"
+        src={frontmatter.image}
+        alt={frontmatter.title}
+        width={1500}
+        aspectRatio={frontmatter.aspect ? frontmatter.aspect : `16:10`}
+      />
+      <figcaption class="italic flex">
+        <span>{frontmatter.title}</span>
+
+        {frontmatter.author && <span>, {frontmatter.author}</span>}
+
+        {
+          frontmatter.date && (
+            <date>, {new Date(frontmatter.date).toLocaleDateString()}</date>
+          )
+        }
+      </figcaption>
+    </figure>
+
+    <div class="space-y-6 my-8">
       <slot />
     </div>
     <!-- {`/src/images/${frontmatter.image}`} -->
-    <Image
-      class="max-w-full object-cover my-12"
-      src={frontmatter.image}
-      alt={frontmatter.title}
-      width={1400}
-      height={1400}
-    />
 
     {
       filteredPhotos.length > 0 && (

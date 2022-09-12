@@ -4,12 +4,14 @@ const {frontmatter, headings} = Astro.props
 ---
 
 <Layout siteTitle={frontmatter.title}>
-  <article class="w-11/12 md:w-3/4 mx-auto p-6 space-y-6 my-6 md:my-20">
+  <article
+    class="w-11/12 md:w-3/4 mx-auto p-6 space-y-6 my-6 md:my-20 text-sm md:text-base"
+  >
     <h1 class="text-3xl font-bold">{frontmatter.title}</h1>
 
     {
       headings && (
-        <div class="flex flex-col gap-2 fixed right-4 bottom-4 bg-white p-4 rounded-md ring-pink-400 ring-4">
+        <div class="flex flex-col gap-2 fixed right-4 bottom-32 md:bottom-4 bg-white p-4 rounded-md ring-pink-400 ring-4">
           <span class="font-bold">Page Contents</span>
           {headings.map(heading => (
             <a class="text-sm" href={`#${heading.slug}`}>

@@ -38,9 +38,9 @@ menu:
     slug: /
     icon: /images/icons/home.svg
   - name: About
-    slug: /about
+    slug: /about/
     icon: /images/icons/about.svg
   - name: Photos
-    slug: /photos
+    slug: /photos/
     icon: /images/icons/photos.svg
 ---

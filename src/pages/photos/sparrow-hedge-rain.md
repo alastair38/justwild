@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/Photo.astro
-title: Swans
-slug: swans
+title: Sparrow in rain
+slug: sparrow-rain
 date: 2022-08-26
-image: ./src/images/swans.jpg
+image: ./src/images/sparrow-hedge-rain.jpg
 aspect: '49:32'
 camera:
   model: Sony A57

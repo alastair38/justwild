@@ -4,6 +4,10 @@ title: Peacock
 slug: peacock
 date: 2022-09-8
 image: ./src/images/peacock.jpg
+aspect: '1:1'
+camera:
+  model: Sony A57
+  lens: Sigma 70-300mm F4-5.6 AF DG OS
 author: Grace Cox
 featured: true
 categories:

@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/Photo.astro
-title: Swans
-slug: swans
+title: Ewe with lambs
+slug: ewe-with-lambs
 date: 2022-08-26
-image: ./src/images/swans.jpg
+image: ./src/images/ewe-with-lambs.jpg
 aspect: '49:32'
 camera:
   model: Sony A57

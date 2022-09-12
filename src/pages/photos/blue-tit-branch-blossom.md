@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/Photo.astro
-title: Four-horned sheep
-slug: four-horned-sheep
-date: 2022-07-13
-image: ./src/images/four-horned-sheep.jpg
+title: Blue tit on branch
+slug: blue-tit-branch-blossom
+date: 2022-08-13
+image: ./src/images/blue-tit-branch-blossom.jpg
 aspect: '3:2'
 camera:
   model: Sony A57
@@ -13,11 +13,6 @@ featured: true
 description: Dramatically customize cutting-edge niche markets whereas extensible deliverables. Uniquely re-engineer world-class imperatives and premier benefits. Completely simplify impactful core competencies and 24/7 e-tailers. Quickly disintermediate fully researched deliverables via maintainable opportunities. Compellingly actualize error-free architectures via top-line models.
 categories:
   - Birds
-  - Colours
 ---
 
 Dramatically customize cutting-edge niche markets whereas extensible deliverables. Uniquely re-engineer world-class imperatives and premier benefits. Completely simplify impactful core competencies and 24/7 e-tailers. Quickly disintermediate fully researched deliverables via maintainable opportunities. Compellingly actualize error-free architectures via top-line models.
-
-Globally maximize customized initiatives vis-a-vis resource maximizing e-markets. Proactively transition proactive intellectual capital after functionalized human capital. Phosfluorescently utilize performance based methodologies after extensible experiences. Distinctively disintermediate 24/365 initiatives and vertical imperatives. Quickly re-engineer emerging relationships without multifunctional paradigms.
-
-Holisticly provide access to functionalized web services whereas bricks-and-clicks total linkage. Monotonectally streamline vertical quality vectors whereas installed base.

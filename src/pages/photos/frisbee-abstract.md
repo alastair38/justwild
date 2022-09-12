@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/Photo.astro
-title: Swans
-slug: swans
+title: Frisbee abstract
+slug: frisbee-abstract
 date: 2022-08-26
-image: ./src/images/swans.jpg
+image: ./src/images/frisbee-edge-abstract.jpg
 aspect: '49:32'
 camera:
   model: Sony A57
@@ -11,8 +11,8 @@ camera:
 author: Grace Cox
 featured: false
 categories:
-  - Birds
-  - Black and White
+  - Abstract
+  - Colours
 ---
 
 Dramatically customize cutting-edge niche markets whereas extensible deliverables. Uniquely re-engineer world-class imperatives and premier benefits. Completely simplify impactful core competencies and 24/7 e-tailers. Quickly disintermediate fully researched deliverables via maintainable opportunities. Compellingly actualize error-free architectures via top-line models.

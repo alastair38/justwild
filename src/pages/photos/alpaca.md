@@ -4,6 +4,10 @@ title: Alpaca
 slug: alpaca
 date: 2022-07-26
 image: ./src/images/alpaca.jpg
+aspect: '2:1'
+camera:
+  model: Sony A57
+  lens: Sigma 70-300mm F4-5.6 AF DG OS
 author: Grace Cox
 featured: false
 categories:

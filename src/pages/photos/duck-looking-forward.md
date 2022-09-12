@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/Photo.astro
-title: Swans
-slug: swans
+title: Duck looking forward
+slug: duck-looking-forward
 date: 2022-08-26
-image: ./src/images/swans.jpg
+image: ./src/images/duck-looking-forward-left.jpg
 aspect: '49:32'
 camera:
   model: Sony A57

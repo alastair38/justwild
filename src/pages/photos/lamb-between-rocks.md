@@ -4,6 +4,10 @@ title: Lamb between rocks
 slug: lamb-between-rocks
 date: 2022-05-26
 image: ./src/images/lamb-between-rocks.jpg
+aspect: '3:2'
+camera:
+  model: Sony A57
+  lens: Sigma 70-300mm F4-5.6 AF DG OS
 author: Grace Cox
 featured: true
 categories:

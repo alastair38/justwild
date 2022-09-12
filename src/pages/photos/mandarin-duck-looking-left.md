@@ -1,10 +1,10 @@
 ---
 layout: ../../layouts/Photo.astro
-title: Swans
-slug: swans
+title: Mandarin Duck
+slug: mandarin-duck-looking-left
 date: 2022-08-26
-image: ./src/images/swans.jpg
-aspect: '49:32'
+image: ./src/images/mandarin-duck-head-looking-left.jpg
+aspect: '16:10'
 camera:
   model: Sony A57
   lens: Sigma 70-300mm F4-5.6 AF DG OS
@@ -12,7 +12,7 @@ author: Grace Cox
 featured: false
 categories:
   - Birds
-  - Black and White
+  - Colours
 ---
 
 Dramatically customize cutting-edge niche markets whereas extensible deliverables. Uniquely re-engineer world-class imperatives and premier benefits. Completely simplify impactful core competencies and 24/7 e-tailers. Quickly disintermediate fully researched deliverables via maintainable opportunities. Compellingly actualize error-free architectures via top-line models.
