@@ -54,7 +54,7 @@ const filteredUnique = [
     class="w-11/12 md:w-3/4 mx-auto p-6 grid grid-cols-1 gap-6 my-6 md:my-20 text-sm md:text-base"
   >
     <header class="flex flex-col gap-4 border-b border-b-gray-300 pb-6">
-      <h1 class="text-3xl font-black">{frontmatter.title}</h1>
+      <h1 class="text-2xl md:text-3xl font-black">{frontmatter.title}</h1>
       <!-- {
         frontmatter.date && (
           <p class="italic">
@@ -65,19 +65,18 @@ const filteredUnique = [
  -->
       {
         frontmatter.camera.model && (
-          <div class="flex items-center gap-1 italic ">
+          <div class="italic inline-flex items-center text-sm md:text-base">
             <img
-              class="w-5 h-5"
+              class="w-5 h-5 mr-1"
               src="/images/icons/photos.svg"
               aria-hidden="true"
               height="24"
               width="24"
               alt=""
             />
-            <span>{frontmatter.camera.model}</span>
-            {frontmatter.camera.lens && (
-              <span> with {frontmatter.camera.lens}</span>
-            )}
+            {frontmatter.camera.model}
+
+            {frontmatter.camera.lens && ` with ${frontmatter.camera.lens}`}
           </div>
         )
       }
@@ -105,7 +104,7 @@ const filteredUnique = [
         width={1500}
         aspectRatio={frontmatter.aspect ? frontmatter.aspect : `16:10`}
       />
-      <figcaption class="italic flex">
+      <figcaption class="italic flex text-sm md:text-base pt-1">
         <span>{frontmatter.title}</span>
 
         {frontmatter.author && <span>, {frontmatter.author}</span>}
@@ -118,7 +117,7 @@ const filteredUnique = [
       </figcaption>
     </figure>
 
-    <div class="space-y-6 my-8">
+    <div class="space-y-6 my-4 md:my-8">
       <slot />
     </div>
     <!-- {`/src/images/${frontmatter.image}`} -->

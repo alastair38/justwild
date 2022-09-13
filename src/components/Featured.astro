@@ -23,7 +23,9 @@ const featuredImages = photos.filter(
             height={300}
             width={400}
           />
-          <h2 class="text-xl font-bold">{feature.frontmatter.title}</h2>
+          <h2 class="text-base md:text-lg font-bold">
+            {feature.frontmatter.title}
+          </h2>
           <a
             class="px-4 py-1 focus:ring-4 focus:ring-pink-600 hover:ring-4 hover:ring-pink-600 border border-current rounded-md inline-flex"
             href={feature.url}
