@@ -117,9 +117,7 @@ const {tag} = Astro.params
             />
           )}
           <div class="p-6 space-y-6 bg-neutral">
-            <h2 class="text-xl md:text-2xl font-bold">
-              {frontmatter.title} - {i}
-            </h2>
+            <h2 class="text-xl md:text-2xl font-bold">{frontmatter.title}</h2>
             <a
               class="px-4 py-1 hover:ring-4 focus:ring-4 hover:ring-highlight focus:ring-highlight border border-current rounded-md inline-flex"
               href={url}
