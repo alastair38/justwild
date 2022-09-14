@@ -24,9 +24,18 @@ let unique = [...new Set(allCategories)]
   >
     <h1 class="text-2xl md:text-3xl font-black col-span-full">My work</h1>
     {
-      categories.map(category => (
+      categories.map((category, i) => (
         <Card background="bg-transparent">
-          {category.frontmatter.image && (
+          {category.frontmatter.image && i <= 1 ? (
+            <Image
+              class="w-full overflow-hidden object-cover object-top"
+              src={category.frontmatter.image}
+              alt={category.frontmatter.title}
+              height={250}
+              width={400}
+              loading="eager"
+            />
+          ) : (
             <Image
               class="w-full overflow-hidden object-cover object-top"
               src={category.frontmatter.image}

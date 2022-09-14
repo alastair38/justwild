@@ -96,9 +96,18 @@ const {tag} = Astro.params
     </div>
 
     {
-      page.data.map(({frontmatter, url}) => (
+      page.data.map(({frontmatter, url}, i) => (
         <Card background="bg-transparent">
-          {frontmatter.image && (
+          {frontmatter.image && i <= 1 ? (
+            <Image
+              class="w-full overflow-hidden object-cover object-top"
+              src={frontmatter.image}
+              alt={frontmatter.title}
+              height={400}
+              width={600}
+              loading="eager"
+            />
+          ) : (
             <Image
               class="w-full overflow-hidden object-cover object-top"
               src={frontmatter.image}
@@ -108,7 +117,9 @@ const {tag} = Astro.params
             />
           )}
           <div class="p-6 space-y-6 bg-neutral">
-            <h2 class="text-xl md:text-2xl font-bold">{frontmatter.title}</h2>
+            <h2 class="text-xl md:text-2xl font-bold">
+              {frontmatter.title} - {i}
+            </h2>
             <a
               class="px-4 py-1 hover:ring-4 focus:ring-4 hover:ring-highlight focus:ring-highlight border border-current rounded-md inline-flex"
               href={url}
