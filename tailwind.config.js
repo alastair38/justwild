@@ -9,7 +9,18 @@ module.exports = {
       serif: [...defaultTheme.fontFamily.serif],
       mono: [...defaultTheme.fontFamily.mono],
     },
-    extend: {},
+    extend: {
+      colors: {
+        primary: 'var(--primary)',
+        secondary: 'var(--secondary)',
+        tertiary: 'var(--tertiary)',
+        offset: 'var(--offset)',
+        highlight: 'var(--highlight)',
+        contrast: 'var(--contrast)',
+        neutral: 'var(--neutral)',
+        'neutral-contrast': 'var(--neutral-contrast)',
+      },
+    },
   },
   plugins: [],
 }

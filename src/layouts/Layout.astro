@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import Settings from '@components/Settings.astro'
 const settings = await Astro.glob('../settings/settings.md')
 
 export interface Props {
@@ -15,13 +16,18 @@ const {
   socialImage = settings[0].frontmatter.socialImage,
 } = Astro.props as Props
 
-const socialLinks = [...Object.entries(settings[0].frontmatter.social)]
-
+const currentTheme = settings[0].frontmatter.theme
+const themeOptions = settings[0].frontmatter.themeOptions
+const socialProfiles = settings[0].frontmatter.socialProfiles
 const menuItems = settings[0].frontmatter.menu
 ---
 
 <!DOCTYPE html>
-<html class="h-full scroll-smooth font-sans" lang="en">
+<html
+  data-theme={settings[0].frontmatter.theme}
+  class="h-full scroll-smooth font-sans"
+  lang="en"
+>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -39,13 +45,22 @@ const menuItems = settings[0].frontmatter.menu
     <meta name="twitter:title" content={siteTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={`${Astro.url.origin}${socialImage}`} />
+    <link
+      rel="preload"
+      href="/fonts/Montserrat-Regular.woff"
+      as="font"
+      type="font/woff"
+      crossorigin
+    />
+    <link rel="preload" href="/styles/output.css" as="style" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <!-- <link rel="stylesheet" href="/styles/main.css" /> -->
+
+    <link rel="stylesheet" href="/styles/output.css" />
   </head>
-  <body class={`flex flex-col h-full ${settings[0].frontmatter.theme}`}>
+  <body class={`flex flex-col h-full bg-primary text-secondary`}>
     <Header
       siteTitle={settings[0].frontmatter.title}
       logo={settings[0].frontmatter.logo}
@@ -53,7 +68,8 @@ const menuItems = settings[0].frontmatter.menu
     />
     <main class="grow shrink basis-0">
       <slot />
+      <Settings currentTheme={currentTheme} themeOptions={themeOptions} />
     </main>
-    <Footer socialLinks={socialLinks} />
+    <Footer socialLinks={socialProfiles} />
   </body>
 </html>

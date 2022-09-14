@@ -3,9 +3,19 @@
 
 title: Just Wild
 description: Just Wild Photography
-theme: bg-white
+theme: vivid
 
-# theme options are 'default', 'midnight', 'sunrise', 'earth' and 'pop'. To change the theme, update the theme configuration above using one of these options (without the parentheses).
+# theme options can be seen below. To change the theme, update the theme configuration above using one of the 'name' options - so lower case. DO NOT MESS WITH THE THEMEOPTIONS
+
+themeOptions:
+  - name: default
+    label: Default
+  - name: equinox
+    label: Equinox
+  - name: stratos
+    label: Stratos
+  - name: vivid
+    label: Vivid
 
 # Default sitewide images
 
@@ -27,6 +37,16 @@ social:
   linkedin:
   tiktok:
 
+socialProfiles:
+  - name: Instagram
+    link: https://instagram.com/myprofile
+    icon: instagram
+  - name: Twitter
+    link: https://twitter.com/myprofile
+    icon: twitter
+  - name: YouTube
+    link: https://youtube.com/myprofile
+    icon: youtube
 # Analytics
 
 id:
@@ -36,11 +56,11 @@ id:
 menu:
   - name: Home
     slug: /
-    icon: /images/icons/home.svg
+    icon: home
   - name: About
     slug: /about/
-    icon: /images/icons/about.svg
+    icon: about
   - name: Photos
     slug: /photos/
-    icon: /images/icons/photos.svg
+    icon: photos
 ---

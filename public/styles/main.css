@@ -1,31 +1,88 @@
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/Montserrat-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root,
+  [data-theme='default'] {
+    --primary: rgb(255 255 255 / 1);
+    --secondary: rgb(7 7 7 / 1);
+    --tertiary: rgb(245 222 179 / 1);
+    --offset: rgb(244 244 0 / 1);
+    --highlight: rgb(244 244 0 / 1);
+    --contrast: rgb(0 0 0 / 1);
+    --neutral: rgb(255 255 255 / 1);
+    --neutral-contrast: rgb(7 7 7 / 1);
+  }
+
+  [data-theme='equinox'] {
+    --primary: rgba(10 64 64 / 1);
+    --secondary: rgba(221 216 216 / 1);
+    --tertiary: rgb(45 222 179 / 1);
+    --offset: rgb(244 200 0 / 1);
+    --highlight: rgb(244 200 0 / 1);
+    --contrast: rgb(255 255 255 / 1);
+    --neutral: rgb(255 255 255 / 1);
+    --neutral-contrast: rgba(7 7 7 / 1);
+  }
+
+  [data-theme='vivid'] {
+    --primary: rgb(0 245 212 / 1);
+    --secondary: rgba(12 74 110 / 1);
+    --tertiary: rgb(245 222 179 / 1);
+    --offset: rgb(12 74 110 / 1);
+    --highlight: rgb(236 72 153 / 1);
+    --contrast: rgb(0 0 0 / 1);
+    --neutral: rgb(255 255 255 / 1);
+    --neutral-contrast: rgb(7 7 7 / 1);
+  }
+
+  [data-theme='stratos'] {
+    --primary: rgb(12 74 110 / 1);
+    --secondary: rgba(255 255 255 / 1);
+    --tertiary: rgb(245 222 179 / 1);
+    --offset: rgb(255 200 0 / 1);
+    --highlight: rgb(255 200 0 / 1);
+    --contrast: rgb(0 0 0 / 1);
+    --neutral: rgb(255 255 255 / 1);
+    --neutral-contrast: rgb(7 7 7 / 1);
+  }
 }
 
-/* @font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/Montserrat-Bold.woff') format('woff');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
+@layer components {
+  .active.menu-item svg,
+  :not(.active).menu-item:hover svg {
+    @apply bg-offset stroke-primary duration-200;
+  }
 
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/Montserrat-Italic.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
+  figure:before {
+    content: 'Image';
+    display: grid;
+    font-size: 3em;
+    font-weight: bolder;
+    color: var(--secondary);
+    place-items: center;
+    position: absolute;
+    border-radius: 4px;
+    inset: 2rem 0.1rem 2rem 0.1rem;
+    border: 1px solid var(--secondary);
+    opacity: 0.5;
+    z-index: -1;
+  }
 
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/Montserrat-BoldItalic.woff') format('woff');
-  font-weight: 800;
-  font-style: italic;
-  font-display: swap;
-} */
+  [data-active='true'] {
+    @apply bg-yellow-500;
+  }
+
+  #settings-modal::backdrop {
+    background: rgb(0 0 0 / 50%);
+  }
+}

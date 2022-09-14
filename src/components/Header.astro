@@ -1,6 +1,6 @@
 ---
 import {Image} from '@astrojs/image/components'
-
+import Icon from './Icon.astro'
 // const navItems = await Astro.glob('../navigation/*.md')
 
 // const items = navItems
@@ -19,7 +19,7 @@ export interface Props {
 
 const {
   siteTitle,
-  background = 'bg-slate-200',
+  background = 'transparent',
   logo,
   menuItems,
 } = Astro.props as Props
@@ -33,13 +33,13 @@ const {
         href="/"
       >
         <Image
-          class="h-8 w-8 lg:h-12 lg:h-auto object-contain rounded-full bg-blue-300 p-1"
+          class="h-8 w-8 lg:h-12 lg:h-auto object-contain rounded-full bg-neutral p-1"
           src={logo}
           height="48"
           width="48"
           alt="Just Wild logo"
         />
-        <span class="text-2xl lg:text-4xl font-black">{siteTitle}</span>
+        <span class="text-2xl lg:text-3xl font-black">{siteTitle}</span>
       </a>
     </div>
 
@@ -52,23 +52,15 @@ const {
           menuItems.map(item => (
             <li class="w-max">
               <a
-                class={`flex gap-2 items-center ${
-                  Astro.url.pathname === (item.slug ? item.slug : '/')
-                    ? 'text-red-500'
-                    : 'text-gray-900'
+                class={`group flex gap-2 items-center ${
+                  Astro.url.pathname === item.slug
+                    ? 'active menu-item'
+                    : 'menu-item'
                 }`}
                 href={item.slug ? item.slug : '/'}
               >
-                {item.icon && (
-                  <img
-                    class="w-6 h-6"
-                    src={item.icon}
-                    aria-hidden="true"
-                    height="24"
-                    width="24"
-                    alt=""
-                  />
-                )}
+                <Icon icon={item.icon} />
+
                 {item.name}
               </a>
             </li>

@@ -1,8 +1,8 @@
 ---
 import Layout from './Layout.astro'
 import RelatedPhotos from '../components/RelatedPhotos.astro'
+import Icon from '@components/Icon.astro'
 import {Image, Picture} from '@astrojs/image/components'
-import {getImage} from '@astrojs/image'
 
 export async function getStaticPaths() {
   const photos = await Astro.glob('../pages/photos/*.md')
@@ -51,29 +51,16 @@ const filteredUnique = [
   socialImage={frontmatter.image}
 >
   <article
-    class="w-11/12 md:w-3/4 mx-auto p-6 grid grid-cols-1 gap-6 my-6 md:my-20 text-sm md:text-base"
+    class="w-full md:w-3/4 mx-auto p-6 grid grid-cols-1 gap-6 mb-6 md:mb-20 md:mt-20 text-sm md:text-base"
   >
-    <header class="flex flex-col gap-4 border-b border-b-gray-300 pb-6">
+    <header class="flex flex-col gap-4 border-b border-b-secondary pb-6">
       <h1 class="text-2xl md:text-3xl font-black">{frontmatter.title}</h1>
-      <!-- {
-        frontmatter.date && (
-          <p class="italic">
-            Posted on {new Date(frontmatter.date).toLocaleDateString()}
-          </p>
-        )
-      }
- -->
+
       {
         frontmatter.camera.model && (
           <div class="italic inline-flex items-center text-sm md:text-base">
-            <img
-              class="w-5 h-5 mr-1"
-              src="/images/icons/photos.svg"
-              aria-hidden="true"
-              height="24"
-              width="24"
-              alt=""
-            />
+            <Icon icon="photos" classes="w-5 h-5 stroke-secondary mr-2" />
+
             {frontmatter.camera.model}
 
             {frontmatter.camera.lens && ` with ${frontmatter.camera.lens}`}
@@ -86,7 +73,7 @@ const filteredUnique = [
           currentCategories &&
             currentCategories.map(category => (
               <a
-                class="px-3 border bg-white rounded-full hover:ring-4 hover:ring-pink-500"
+                class="px-3 border bg-neutral text-neutral-contrast rounded-full hover:ring-4 focus:ring-4 hover:ring-highlight focus:ring-highlight"
                 href={`/photos/${category.toLowerCase().replaceAll(' ', '-')}`}
               >
                 {category}
@@ -96,7 +83,7 @@ const filteredUnique = [
       </p>
     </header>
 
-    <figure>
+    <figure class="relative">
       <Image
         class="max-w-full"
         src={frontmatter.image}
@@ -104,7 +91,7 @@ const filteredUnique = [
         width={1500}
         aspectRatio={frontmatter.aspect ? frontmatter.aspect : `16:10`}
       />
-      <figcaption class="italic flex text-sm md:text-base pt-1">
+      <figcaption class="italic text-sm md:text-base pt-1">
         <span>{frontmatter.title}</span>
 
         {frontmatter.author && <span>, {frontmatter.author}</span>}
@@ -120,7 +107,6 @@ const filteredUnique = [
     <div class="space-y-6 my-4 md:my-8">
       <slot />
     </div>
-    <!-- {`/src/images/${frontmatter.image}`} -->
 
     {
       filteredPhotos.length > 0 && (

@@ -1,4 +1,5 @@
 ---
+import Icon from './Icon.astro'
 export interface Props {
   socialLinks: any
 }
@@ -12,15 +13,14 @@ const {socialLinks} = Astro.props as Props
       <ul class="flex justify-evenly items-center gap-6">
         {socialLinks.map(
           links =>
-            links[1] && (
+            links.name && (
               <li>
-                <a href={links[1]}>
-                  <img
-                    class="w-6 h-6"
-                    src={`/images/icons/${links[0]}.svg`}
-                    aria-hidden="true"
+                <a href={links.link}>
+                  <Icon
+                    classes="w-7 h-7 fill-neutral-contrast hover:scale-110 duration-200"
+                    icon={links.icon}
                   />
-                  <span class="sr-only">{links[0]}</span>
+                  <span class="sr-only">{links.name}</span>
                 </a>
               </li>
             )

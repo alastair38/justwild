@@ -1,0 +1,13 @@
+---
+export interface Props {
+  icon: string
+  classes?: string
+}
+
+const {icon, classes = 'h-7 w-7 stroke-secondary rounded-full p-1'} =
+  Astro.props as Props
+---
+
+<svg class={classes}>
+  <use xlink:href={`/images/icons/sprite.svg#${icon}`}></use>
+</svg>

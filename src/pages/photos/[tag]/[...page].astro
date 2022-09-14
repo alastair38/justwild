@@ -3,6 +3,7 @@ import {Image} from '@astrojs/image/components'
 
 import Card from '../../../components/Card.astro'
 import Layout from '../../../layouts/Layout.astro'
+import Icon from '@components/Icon.astro'
 import RightChevron from '../../../components/icons/RightChevron.astro'
 import LeftChevron from '../../../components/icons/LeftChevron.astro'
 
@@ -43,7 +44,7 @@ const {tag} = Astro.params
 
 <Layout siteTitle={title} description={`${title} photos from Just Wild`}>
   <section
-    class="w-11/12 md:w-3/4 mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-6 my-6 md:my-20 text-sm md:text-base"
+    class="w-full md:w-3/4 mx-auto p-6 grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 md:mb-20 md:mt-20 text-sm md:text-base"
   >
     <header>
       <h1 class="text-2xl md:text-3xl font-black col-span-full capitalize">
@@ -51,7 +52,7 @@ const {tag} = Astro.params
       </h1>
 
       <span
-        class="fixed bottom-[10%] z-50 lg:bottom-4 right-4 ring-4 ring-pink-500 px-3 py-1 rounded-full shadow-md bg-white flex items-center gap-2"
+        class="fixed bottom-[10%] z-50 lg:bottom-4 right-4 ring-4 ring-offset px-3 py-1 rounded-full shadow-md bg-neutral text-neutral-contrast flex items-center gap-2"
         >{`${page.currentPage} of ${page.lastPage}`}
         {
           page.url.prev ? (
@@ -60,7 +61,7 @@ const {tag} = Astro.params
               href={page.url.prev}
               aria-label="previous page"
             >
-              <LeftChevron classes={`h-4 w-4`} />
+              <Icon icon="left" classes={`h-4 w-4`} />
             </a>
           ) : null
         }
@@ -71,7 +72,7 @@ const {tag} = Astro.params
               href={page.url.next}
               aria-label="next page"
             >
-              <RightChevron classes={`h-4 w-4`} />
+              <Icon icon="right" classes={`h-4 w-4`} />
             </a>
           ) : null
         }
@@ -96,7 +97,7 @@ const {tag} = Astro.params
 
     {
       page.data.map(({frontmatter, url}) => (
-        <Card>
+        <Card background="bg-transparent">
           {frontmatter.image && (
             <Image
               class="w-full overflow-hidden object-cover object-top"
@@ -106,10 +107,10 @@ const {tag} = Astro.params
               width={600}
             />
           )}
-          <div class="p-6 space-y-6">
+          <div class="p-6 space-y-6 bg-neutral">
             <h2 class="text-xl md:text-2xl font-bold">{frontmatter.title}</h2>
             <a
-              class="px-4 py-1 focus:ring-4 focus:ring-pink-600 hover:ring-4 hover:ring-pink-600 border border-current rounded-md inline-flex"
+              class="px-4 py-1 hover:ring-4 focus:ring-4 hover:ring-highlight focus:ring-highlight border border-current rounded-md inline-flex"
               href={url}
             >
               View Details

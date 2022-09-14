@@ -3,18 +3,21 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
+    "dev": "start astro dev & npx tailwindcss -i ./public/styles/main.css -o ./public/styles/output.css --watch",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^1.0.0",
     "astro": "^1.1.5"
   },
   "devDependencies": {
-    "@astrojs/image": "^0.5.0",
+    "@astrojs/image": "^0.5.1",
     "@astrojs/netlify": "^1.0.2",
-    "@astrojs/tailwind": "^1.0.0"
+    "@astrojs/tailwind": "^1.0.0",
+    "autoprefixer": "^10.4.9",
+    "postcss": "^8.4.16"
   }
 }

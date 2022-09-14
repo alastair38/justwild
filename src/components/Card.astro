@@ -1,3 +1,13 @@
-<div class="overflow-hidden rounded-md shadow-md bg-white">
+---
+export interface Props {
+  background?: string
+}
+
+const {background = 'bg-neutral'} = Astro.props as Props
+---
+
+<div
+  class={`overflow-hidden rounded-md shadow-md text-neutral-contrast ${background}`}
+>
   <slot />
 </div>
