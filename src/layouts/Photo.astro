@@ -90,6 +90,7 @@ const filteredUnique = [
         alt={frontmatter.title}
         width={1500}
         aspectRatio={frontmatter.aspect ? frontmatter.aspect : `16:10`}
+        loading="eager"
       />
       <figcaption class="italic text-sm md:text-base pt-1">
         <span>{frontmatter.title}</span>
