@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "start astro dev & npx tailwindcss -i ./public/styles/main.css -o ./public/styles/output.css --watch",
+    "dev": "start astro dev & npx tailwindcss -i ./src/styles/main.css -o ./src/styles/output.css --watch",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
