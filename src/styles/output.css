@@ -750,6 +750,10 @@ figure:before {
   display: grid;
 }
 
+.hidden {
+  display: none;
+}
+
 .h-8 {
   height: 2rem;
 }
@@ -1150,6 +1154,17 @@ figure:before {
   transition-duration: 200ms;
 }
 
+.scroll {
+  opacity: 0;
+  transition: all 550ms ease-out;
+  transform: scale3d(0.97, 0.97, 0.97);
+}
+
+.scrolled-in {
+  opacity: 1;
+  transform: scale3d(1, 1, 1);
+}
+
 .hover\:scale-110:hover {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
@@ -1201,6 +1216,10 @@ figure:before {
 
   .md\:mt-20 {
     margin-top: 5rem;
+  }
+
+  .md\:block {
+    display: block;
   }
 
   .md\:w-4\/5 {

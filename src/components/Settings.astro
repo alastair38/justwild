@@ -7,102 +7,51 @@ export interface Props {
 const {currentTheme = 'default', themeOptions = []} = Astro.props as Props
 ---
 
-<button id="settings" class="fixed bottom-4 left-4" aria-label="Theme Settings"
-  ><svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="h-12 w-12 bg-neutral-contrast stroke-neutral p-2 rounded-full"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    stroke-width="1"
-  >
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-    ></path>
-  </svg>
-</button>
-
-<dialog id="settings-modal">
-  <div class="flex flex-col gap-12 p-12">
-    <h3>{`Your selected theme is: ${currentTheme}`}</h3>
-    <div class="theme-switch flex gap-4">
-      {
-        themeOptions.map(option => (
-          <button
-            data-theme-option={option.name}
-            data-active="false"
-            class="px-2 border border-current rounded-md focus:ring-pink-600 focus:ring-4"
-          >
-            {option.label}
-          </button>
-        ))
-      }
-    </div>
-    <button
-      id="close"
-      class="py-1 border border-current rounded-md bg-black text-white"
-      >Close</button
+<aside class="hidden md:block">
+  <button
+    id="settings"
+    class="fixed bottom-4 left-4"
+    aria-label="Theme Settings"
+    ><svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-12 w-12 bg-neutral-contrast stroke-neutral p-2 rounded-full"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="1"
     >
-  </div>
-</dialog>
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+      ></path>
+    </svg>
+  </button>
 
-<script is:inline define:vars={{currentTheme}}>
-  const htmlEl = document.querySelector('html')
+  <dialog id="settings-modal">
+    <div class="flex flex-col gap-12 p-12">
+      <div class="theme-switch flex gap-4">
+        {
+          themeOptions.map(option => (
+            <button
+              data-theme-option={option.name}
+              data-active="false"
+              class="px-2 border border-current rounded-md focus:ring-pink-600 focus:ring-4"
+            >
+              {option.label}
+            </button>
+          ))
+        }
+      </div>
+      <button
+        id="close"
+        class="py-1 border border-current rounded-md bg-black text-white"
+        >Close</button
+      >
+    </div>
+  </dialog>
+</aside>
 
-  const buttons = document.querySelectorAll('.theme-switch button')
-  const settingsModal = document.querySelector('#settings-modal')
-
-  const settings = document.querySelector('#settings')
-
-  buttons.forEach(button =>
-    button.addEventListener('click', function handleClick(event) {
-      let selectedTheme = button.dataset.themeOption
-      currentTheme = selectedTheme
-
-      document.querySelector(
-        '#settings-modal h3'
-      ).innerText = `Your selected theme is: ${currentTheme}`
-
-      htmlEl.setAttribute('data-theme', selectedTheme)
-    })
-  )
-
-  document.onkeydown = function (evt) {
-    evt = evt || window.event
-    if (evt.key === 'Escape' && settingsModal.open) {
-      htmlEl.classList.remove('overflow-hidden')
-    }
-  }
-
-  function setButtonFocus() {
-    buttons.forEach(button => {
-      if (button.dataset.themeOption === htmlEl.dataset.theme) {
-        button.setAttribute('data-active', true)
-      } else {
-        button.setAttribute('data-active', false)
-      }
-    })
-  }
-
-  function openCheck(dialog) {
-    if (dialog.open) {
-      htmlEl.classList.add('overflow-hidden')
-    } else {
-      htmlEl.classList.remove('overflow-hidden')
-    }
-  }
-
-  settings.addEventListener('click', () => {
-    setButtonFocus()
-    settingsModal.showModal()
-    openCheck(settingsModal)
-  })
-
-  const close = document.querySelector('#close')
-  close.addEventListener('click', () => {
-    settingsModal.close()
-    openCheck(settingsModal)
-  })
+<script>
+  import '../scripts/themeSwitcher.js'
 </script>

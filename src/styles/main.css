@@ -86,3 +86,16 @@
     background: rgb(0 0 0 / 50%);
   }
 }
+
+.scroll {
+  opacity: 0;
+  transition: all 550ms ease-out;
+  -webkit-transform: scale3d(0.97, 0.97, 0.97);
+  transform: scale3d(0.97, 0.97, 0.97);
+}
+
+.scrolled-in {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+}
