@@ -1,0 +1,47 @@
+---
+import {Image} from '@astrojs/image/components'
+
+import Footer from '../components/Footer.astro'
+import '../styles/output.css'
+const settings = await Astro.glob('../settings/settings.md')
+---
+
+<!DOCTYPE html>
+<html class="font-sans" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{`${settings[0].frontmatter.title} - Admin`}</title>
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"
+    ></script>
+    <script
+      async
+      src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+    ></script>
+  </head>
+
+  <body class="items-center justify-center">
+    <header
+      class="flex items-center fixed bottom-4 left-4 justify-center gap-2"
+    >
+      <Image
+        class="h-16 w-16 object-contain rounded-full bg-white p-4 shadow-xl"
+        src={settings[0].frontmatter.logo}
+        height="48"
+        width="48"
+        alt="Just Wild logo"
+      />
+
+      <h1 class="sr-only">
+        {`${settings[0].frontmatter.title}`}
+      </h1>
+    </header>
+
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        const user = window.netlifyIdentity.currentUser()
+        console.log(user)
+      }
+    </script>
+  </body>
+</html>

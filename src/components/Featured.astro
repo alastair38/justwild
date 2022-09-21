@@ -18,7 +18,7 @@ const featuredImages = photos.filter(
         <div class="p-6 space-y-6">
           <Image
             class="max-w-full object-cover object-top"
-            src={feature.frontmatter.image}
+            src={`./${feature.frontmatter.image}`}
             alt={feature.frontmatter.title}
             height={300}
             width={400}

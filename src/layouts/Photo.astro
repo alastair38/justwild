@@ -87,22 +87,20 @@ const filteredUnique = [
       <Image
         id="featured"
         class="max-w-full scroll"
-        src={frontmatter.image}
+        src={`./${frontmatter.image}`}
         alt={frontmatter.title}
         width={1500}
         loading="eager"
-        aspectRatio={frontmatter.aspect ? frontmatter.aspect : `16:10`}
+        aspectRatio={`${frontmatter.aspect}`
+          ? `${frontmatter.aspect}`
+          : `16:10`}
       />
       <figcaption class="italic text-sm md:text-base pt-1">
         <span>{frontmatter.title}</span>
 
         {frontmatter.author && <span>, {frontmatter.author}</span>}
 
-        {
-          frontmatter.date && (
-            <date>, {new Date(frontmatter.date).toLocaleDateString()}</date>
-          )
-        }
+        {frontmatter.date && <date>, {frontmatter.date}</date>}
       </figcaption>
     </figure>
 

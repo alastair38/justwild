@@ -58,6 +58,8 @@ const menuItems = settings[0].frontmatter.menu
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Include Netlify Identity for authentication -->
   </head>
   <body class={`flex flex-col h-full bg-primary text-secondary`}>
     <Header
@@ -72,6 +74,18 @@ const menuItems = settings[0].frontmatter.menu
     <Footer socialLinks={socialProfiles} />
     <script>
       import '../scripts/scrollAnimations.js'
+    </script>
+
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', user => {
+          if (!user) {
+            window.netlifyIdentity.on('login', () => {
+              document.location.href = '/admin/'
+            })
+          }
+        })
+      }
     </script>
   </body>
 </html>

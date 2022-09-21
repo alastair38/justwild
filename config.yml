@@ -1,0 +1,150 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+site_url: http://localhost:3000/
+
+display_url: https://your-site.com
+
+logo_url: https://localhost:3000/images/logo/logo.png
+
+media_folder: 'src/images' # Folder where user uploaded files should go
+public_folder: 'src/images'
+
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+  sanitize_replacement: '-'
+
+collections: # A list of collections the CMS should be able to edit
+  - name: 'photo' # Used in routes, ie.: /admin/collections/:slug/edit
+    label: 'Photos' # Used in the UI, ie.: "New Post"
+    label_singular: 'Photo'
+    folder: 'src/pages/photos' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    delete: true
+    summary: '{{title}}'
+    slug: '{{title}}'
+    view_groups:
+      - label: Categories
+        field: categories
+    editor:
+      preview: false
+    publish: false
+    fields: # The fields each document in this collection have
+      - {label: 'Title', name: 'title', widget: 'string'}
+      - {
+          label: 'Date',
+          name: 'date',
+          widget: 'datetime',
+          date_format: 'DD.MM.YYYY',
+          time_format: false,
+          format: 'LL',
+          picker_utc: false,
+        }
+      - {label: 'Image', name: 'image', widget: 'image', choose_url: false}
+      - label: 'Camera'
+        name: 'camera'
+        widget: 'object'
+        fields:
+          - {label: 'Model', name: 'model', widget: 'string'}
+          - {label: 'Lens', name: 'lens', widget: 'string'}
+      - label: 'Aspect'
+        name: 'aspect'
+        widget: 'select'
+        options:
+          - {label: 'Portrait', value: '2:3'}
+          - {label: 'Landscape', value: '5:3'}
+          - {label: 'Square', value: '1:1'}
+      - {label: 'Featured', name: 'featured', widget: 'boolean', default: false}
+      - {
+          name: 'categories',
+          label: 'Categories',
+          widget: 'relation',
+          collection: 'category',
+          search_fields: ['title'],
+          value_field: 'title',
+          multiple: true,
+          required: false,
+        }
+      - {label: 'Description', name: 'body', widget: 'text'}
+      - {
+          label: 'Layout',
+          name: 'layout',
+          widget: 'hidden',
+          default: '../../layouts/Photo.astro',
+        }
+  - name: 'page'
+    label: 'Pages' # Used in the UI, ie.: "New Post"
+    label_singular: 'Page'
+    folder: 'src/pages' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    delete: true
+    slug: '{{title}}'
+    editor:
+      preview: false
+    fields: # The fields each document in this collection have
+      - {label: 'Title', name: 'title', widget: 'string'}
+      - {label: 'Body', name: 'body', widget: 'markdown'}
+      - {
+          label: 'Layout',
+          name: 'layout',
+          widget: 'hidden',
+          default: '../../layouts/Page.astro',
+        }
+  - name: 'category'
+    label: 'Categories' # Used in the UI, ie.: "New Post"
+    label_singular: 'Category'
+    folder: 'src/categories' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    delete: true
+    editor:
+      preview: false
+    fields: # The fields each document in this collection have
+      - {label: 'Title', name: 'title', widget: 'string'}
+      - {label: 'Slug', name: 'slug', widget: 'string'}
+      - {label: 'Image', name: 'image', widget: 'image', choose_url: false}
+      - {label: 'Description', name: 'description', widget: 'text'}
+  - name: 'settings'
+    label: 'Settings' # Used in the UI, ie.: "New Post"
+    folder: 'src/settings' # The path to the folder where the documents are stored
+    format: frontmatter
+    create: false # Allow users to create new documents in this collection
+    delete: false
+    summary: 'Click to edit your site settings'
+    sortable_fields: []
+    editor:
+      preview: false
+    fields: # The fields each document in this collection have
+      - {label: 'Title', name: 'title', widget: 'string'}
+      - {label: 'Description', name: 'description', widget: 'text'}
+      - label: 'Theme'
+        name: 'theme'
+        widget: 'select'
+        hint: Choose a colour theme for your website
+        options:
+          - {label: 'Portrait', value: 'default'}
+          - {label: 'Equinox', value: 'equinox'}
+          - {label: 'Stratos', value: 'stratos'}
+          - {label: 'Vivid', value: 'vivid'}
+      - {label: 'Logo', name: 'logo', widget: 'image', choose_url: false}
+      - {
+          label: 'Social Sharing Image',
+          name: 'socialImage',
+          widget: 'image',
+          choose_url: false,
+        }
+      - {
+          label: 'Number of related photos to show on individual pages',
+          name: 'relatedPhotos',
+          widget: 'number',
+          default: 4,
+        }
+      - {
+          label: 'Number of items to show on category pages',
+          name: 'categoryPages',
+          widget: 'number',
+          default: 3,
+        }

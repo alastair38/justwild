@@ -1,12 +1,18 @@
 ---
-# Main site configuration
-
 title: Just Wild
 description: Just Wild Photography
-theme: vivid
-
-# theme options can be seen below. To change the theme, update the theme configuration above using one of the 'name' options - so lower case. DO NOT MESS WITH THE THEMEOPTIONS
-
+theme: stratos
+logo: ./src/images/logo/logo.png
+socialImage: ./src/images/social/banner.png
+relatedPhotos: 4
+categoryPages: 4
+social:
+  instagram: https://instagram.com/myprofile
+  twitter: https://twitter.com/myprofile
+  youtube: https://youtube.com/myprofile
+  facebook: null
+  linkedin: null
+  tiktok: null
 themeOptions:
   - name: default
     label: Default
@@ -16,27 +22,6 @@ themeOptions:
     label: Stratos
   - name: vivid
     label: Vivid
-
-# Default sitewide images
-
-logo: ./src/images/logo/logo.png
-socialImage: ./src/images/social/banner.png
-
-# Items to display
-
-relatedPhotos: 4
-categoryPages: 4
-
-# Social media profiles
-
-social:
-  instagram: https://instagram.com/myprofile
-  twitter: https://twitter.com/myprofile
-  youtube: https://youtube.com/myprofile
-  facebook:
-  linkedin:
-  tiktok:
-
 socialProfiles:
   - name: Instagram
     link: https://instagram.com/myprofile
@@ -47,12 +32,7 @@ socialProfiles:
   - name: YouTube
     link: https://youtube.com/myprofile
     icon: youtube
-# Analytics
-
-id:
-
-# Menu
-
+id: null
 menu:
   - name: Home
     slug: /

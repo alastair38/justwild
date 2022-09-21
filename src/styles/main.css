@@ -74,7 +74,7 @@
     border-radius: 4px;
     inset: 2rem 0.1rem 2rem 0.1rem;
     background: rgba(255, 255, 255, 0.2);
-    opacity: 0.75;
+    opacity: 0.35;
     z-index: -1;
   }
 
@@ -98,4 +98,16 @@
   opacity: 1;
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
+}
+
+[class*='IconWrapper-PageLogoIcon'] {
+  display: none;
+}
+
+/* [class*='GoBackButtonStyle'] {
+  @apply flex fixed bottom-4 left-0 right-0 bg-white ring-4 ring-pink-500 w-fit rounded-full uppercase p-1 shadow-md mx-auto;
+} */
+
+[class*='LoginButton-button'] {
+  @apply mt-0;
 }

@@ -29,7 +29,7 @@ let unique = [...new Set(allCategories)]
           {category.frontmatter.image && i <= 1 ? (
             <Image
               class="w-full overflow-hidden object-cover object-top"
-              src={category.frontmatter.image}
+              src={`./${category.frontmatter.image}`}
               alt={category.frontmatter.title}
               height={250}
               width={400}
@@ -38,7 +38,7 @@ let unique = [...new Set(allCategories)]
           ) : (
             <Image
               class="w-full overflow-hidden object-cover object-top"
-              src={category.frontmatter.image}
+              src={`./${category.frontmatter.image}`}
               alt={category.frontmatter.title}
               height={250}
               width={400}
