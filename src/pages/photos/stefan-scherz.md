@@ -6,8 +6,8 @@ camera:
 layout: ../../layouts/Photo.astro
 author: Grace Cox
 date: September 11, 2022
-image: ./src/images/stefan-scherz.jpg
-aspect: 16:9
+image: src/images/stefan-scherz.jpg
+aspect: 1.67
 featured: false
 categories:
   - Climbing

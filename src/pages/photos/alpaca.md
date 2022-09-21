@@ -1,14 +1,14 @@
 ---
-layout: ../../layouts/Photo.astro
 camera:
   model: Sony A57
   lens: Sigma 70-300mm F4-5.6 AF DG OS
+layout: ../../layouts/Photo.astro
 author: Grace Cox
 slug: alpaca
 title: Alpaca
 date: 2022-07-26
 image: src/images/alpaca.jpg
-aspect: 2:1
+aspect: 1.67
 featured: true
 categories:
   - Birds

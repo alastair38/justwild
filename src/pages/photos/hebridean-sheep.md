@@ -3,8 +3,8 @@ layout: ../../layouts/Photo.astro
 title: Hebridean sheep
 slug: hebridean-sheep
 date: 2022-08-13
-image: ./src/images/hebridean-sheep.jpg
-aspect: '3:2'
+image: src/images/hebridean-sheep.jpg
+aspect: 1.67
 camera:
   model: Sony A57
   lens: Sigma 70-300mm F4-5.6 AF DG OS

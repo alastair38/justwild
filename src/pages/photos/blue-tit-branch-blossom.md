@@ -7,8 +7,8 @@ author: Grace Cox
 slug: blue-tit-branch-blossom
 title: Blue tit on branch
 date: September 21, 2022
-image: ./src/images/blue-tit-branch-blossom.jpg
-aspect: 3:2
+image: src/images/blue-tit-branch-blossom.jpg
+aspect: 1.67
 featured: true
 categories:
   - Birds

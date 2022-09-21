@@ -8,7 +8,7 @@ slug: blue-tit-blossom
 title: Blue tit blossom
 date: September 21, 2022
 image: src/images/blue-tit-blossom.jpg
-aspect: 3:2
+aspect: 1.67
 featured: true
 categories:
   - Birds

@@ -3,8 +3,8 @@ layout: ../../layouts/Photo.astro
 title: Frisbee abstract
 slug: frisbee-abstract
 date: 2022-08-26
-image: ./src/images/frisbee-edge-abstract.jpg
-aspect: '49:32'
+image: src/images/frisbee-edge-abstract.jpg
+aspect: 1.67
 camera:
   model: Sony A57
   lens: Sigma 70-300mm F4-5.6 AF DG OS

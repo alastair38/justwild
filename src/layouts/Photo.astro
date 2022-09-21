@@ -91,12 +91,10 @@ const filteredUnique = [
         alt={frontmatter.title}
         width={1500}
         loading="eager"
-        aspectRatio={`${frontmatter.aspect}`
-          ? `${frontmatter.aspect}`
-          : `16:10`}
+        aspectRatio={frontmatter.aspect ? frontmatter.aspect : `16:10`}
       />
       <figcaption class="italic text-sm md:text-base pt-1">
-        <span>{frontmatter.title}</span>
+        <span>{frontmatter.title} {frontmatter.aspect}</span>
 
         {frontmatter.author && <span>, {frontmatter.author}</span>}
 

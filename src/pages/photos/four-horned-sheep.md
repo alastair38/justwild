@@ -3,8 +3,8 @@ layout: ../../layouts/Photo.astro
 title: Four-horned sheep
 slug: four-horned-sheep
 date: 2022-07-13
-image: ./src/images/four-horned-sheep.jpg
-aspect: '3:2'
+image: src/images/four-horned-sheep.jpg
+aspect: 1.67
 camera:
   model: Sony A57
   lens: Sigma 70-300mm F4-5.6 AF DG OS

@@ -3,8 +3,8 @@ layout: ../../layouts/Photo.astro
 title: Ewe with lambs
 slug: ewe-with-lambs
 date: 2022-08-26
-image: ./src/images/ewe-with-lambs.jpg
-aspect: '49:32'
+image: src/images/ewe-with-lambs.jpg
+aspect: 1.67
 camera:
   model: Sony A57
   lens: Sigma 70-300mm F4-5.6 AF DG OS

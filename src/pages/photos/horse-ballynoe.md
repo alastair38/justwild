@@ -2,8 +2,8 @@
 layout: ../../layouts/Photo.astro
 title: Horse, Ballynoe
 date: 2022-09-13
-image: ./src/images/horse-ballynoe.jpg
-aspect: '3:2'
+image: src/images/horse-ballynoe.jpg
+aspect: 1.67
 camera:
   model: Sony A57
   lens: Sigma 70-300mm F4-5.6 AF DG OS

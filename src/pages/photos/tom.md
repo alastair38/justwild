@@ -3,8 +3,8 @@ layout: ../../layouts/Photo.astro
 title: Tom, Ballynoe
 slug: tom
 date: 2022-08-26
-image: ./src/images/tom.jpg
-aspect: '1:1'
+image: src/images/tom.jpg
+aspect: 1
 camera:
   model: Sony A57
   lens: Sigma 70-300mm F4-5.6 AF DG OS

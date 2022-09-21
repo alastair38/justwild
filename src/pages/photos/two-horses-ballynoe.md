@@ -3,8 +3,8 @@ layout: ../../layouts/Photo.astro
 title: Two horses Ballynoe
 slug: two-horses-ballynoe
 date: 2022-05-26
-image: ./src/images/two-horses-ballynoe.jpg
-aspect: '3:2'
+image: src/images/two-horses-ballynoe.jpg
+aspect: 1.67
 camera:
   model: Sony A57
   lens: Sigma 70-300mm F4-5.6 AF DG OS

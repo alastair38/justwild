@@ -5,10 +5,11 @@ image: src/images/four-horned-sheep.jpg
 camera:
   model: Canon EOS 10
   lens: Canon f2.4
-aspect: 16:9
+aspect: 1.67
 featured: false
 categories:
   - Animals
 layout: ../../layouts/Photo.astro
 ---
+
 S﻿ome text to write

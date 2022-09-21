@@ -3,8 +3,8 @@ layout: ../../layouts/Photo.astro
 title: Mandarin Duck
 slug: mandarin-duck-looking-left
 date: 2022-08-26
-image: ./src/images/mandarin-duck-head-looking-left.jpg
-aspect: '16:10'
+image: src/images/mandarin-duck-head-looking-left.jpg
+aspect: 1.67
 camera:
   model: Sony A57
   lens: Sigma 70-300mm F4-5.6 AF DG OS

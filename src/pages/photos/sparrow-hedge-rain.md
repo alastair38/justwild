@@ -3,8 +3,8 @@ layout: ../../layouts/Photo.astro
 title: Sparrow in rain
 slug: sparrow-rain
 date: 2022-08-26
-image: ./src/images/sparrow-hedge-rain.jpg
-aspect: '49:32'
+image: src/images/sparrow-hedge-rain.jpg
+aspect: 1.67
 camera:
   model: Sony A57
   lens: Sigma 70-300mm F4-5.6 AF DG OS

@@ -2,13 +2,11 @@ backend:
   name: git-gateway
   branch: main
 
-local_backend: true
+local_backend: false
 
-site_url: http://localhost:3000/
+site_url: https://justwild.netlify.app
 
-display_url: https://your-site.com
-
-logo_url: https://localhost:3000/images/logo/logo.png
+display_url: https://justwild.netlify.app
 
 media_folder: 'src/images' # Folder where user uploaded files should go
 public_folder: 'src/images'
@@ -55,9 +53,9 @@ collections: # A list of collections the CMS should be able to edit
         name: 'aspect'
         widget: 'select'
         options:
-          - {label: 'Portrait', value: '2:3'}
-          - {label: 'Landscape', value: '5:3'}
-          - {label: 'Square', value: '1:1'}
+          - {label: 'Portrait', value: 0.67}
+          - {label: 'Landscape', value: 1.67}
+          - {label: 'Square', value: 1}
       - {label: 'Featured', name: 'featured', widget: 'boolean', default: false}
       - {
           name: 'categories',

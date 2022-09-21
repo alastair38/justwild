@@ -3,8 +3,8 @@ layout: ../../layouts/Photo.astro
 title: Sandpiper - Reef Beach, Lewis
 slug: sandpiper
 date: 2022-09-23
-image: ./src/images/sandpiper.jpg
-aspect: '3:2'
+image: src/images/sandpiper.jpg
+aspect: 1.67
 camera:
   model: Sony A57
   lens: Sigma 70-300mm F4-5.6 AF DG OS
